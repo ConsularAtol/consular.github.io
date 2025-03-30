@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dennis "Consular" Johnson</title>
     <link rel="icon" href="https://raw.githubusercontent.com/ConsularAtol/consularatol.github.io/refs/heads/main/potato_mane_happy.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif; /* Updated font */
             margin: 40px auto;
             padding: 20px;
             max-width: 800px;
@@ -35,6 +37,34 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .collage-title {
+            margin-top: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            border-radius: 8px;
+        }
+        .collage-container {
+            margin-top: 40px;
+        }
+        .collage {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .collage img {
+            width: 200px;
+            height: 150px;
+            object-fit: contain; /* Ensures the whole image is shown */
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .collage img:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -48,5 +78,43 @@
         <p><strong>Modrinth:</strong> <a href="https://modrinth.com/user/Consular" target="_blank">My Mods!</a></p>
         <p><strong>Discord Server:</strong> <a href="https://discord.gg/HKNhcGztk3" target="_blank">See my devlogs and more!</a></p>
     </div>
+
+    <!-- Screenshots section -->
+    <div class="collage-title">Screenshots of My Work!</div>
+
+    <div class="collage-container">
+        <div class="collage" id="imageGallery">
+            <!-- Images will be inserted dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // List of images in the images folder
+        const images = [
+            "screenshot1.png",
+            "screenshot2.png",
+            "screenshot3.png",
+            "screenshot4.png",
+            "screenshot5.png",
+            "screenshot6.png",
+            "screenshot7.png",
+            "screenshot8.png"
+        ];
+
+        const gallery = document.getElementById('imageGallery');
+
+        // Function to add images to the gallery
+        function loadImages() {
+            images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = `images/${image}`;  // Path to images folder
+                img.alt = image;
+                gallery.appendChild(img);
+            });
+        }
+
+        // Load the images on page load
+        window.onload = loadImages;
+    </script>
 </body>
 </html>
